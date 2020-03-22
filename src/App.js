@@ -1,8 +1,9 @@
 import React from "react";
-import "./App.css";
+import Routes from "./routes";
+import "./App.scss";
 
 function App() {
-  return <div className="App">sup</div>;
+  return <Routes />;
 }
 
 export default App;
