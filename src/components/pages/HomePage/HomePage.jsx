@@ -1,12 +1,10 @@
 import React from 'react';
-import Nav from '../../molecules/Nav/Nav';
 import Input from '../../atoms/Input/Input';
 import Card from '../../molecules/Card/Card';
 
 const HomePage = () => {
   return (
     <div>
-      <Nav />
       <div className='main-content'>
         <div className='container'>
           <Input placeholder='Search for a country...' />
