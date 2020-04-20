@@ -9,6 +9,7 @@ const makeRequest = (url, options = { method: 'GET' }) => {
     url,
     method: options.method,
     data: options.body,
+    params: options.params,
     headers: {
       Accept: 'application/json',
       'Content-type': 'application/json',

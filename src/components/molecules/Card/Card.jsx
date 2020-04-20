@@ -1,11 +1,22 @@
 import React from 'react';
 import Header from '../../atoms/Header/Header';
-const Card = ({ image, name }) => {
+const Card = ({ image, name, population, region, capital }) => {
   return (
     <div className='card'>
-      <img src={image} alt={name} className='card__image' />
+      <img src={image} alt={`${name} flag`} className='card__image' />
       <div className='card__body'>
-        <Header headerSize='md'>{name}</Header>
+        <div className='card__body__title'>
+          <Header headerSize='md'>{name}</Header>
+        </div>
+        <div className='card__body__text'>
+          <Header headerSize='sm'>Population</Header> : <p>{population}</p>
+        </div>
+        <div className='card__body__text'>
+          <Header headerSize='sm'>Region</Header> : <p>{region}</p>
+        </div>
+        <div className='card__body__text'>
+          <Header headerSize='sm'>Capital</Header> : <p>{capital}</p>
+        </div>
       </div>
     </div>
   );

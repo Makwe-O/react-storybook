@@ -6,13 +6,17 @@
 }
 
 [data-theme='dark'] {
-  --primary-color: #2b3945;
+  --primary-color: #1e272f;
   --font-color: #ffffff;
-  --bg-color: #202c37;
-  --shadow: #171f27;
+  --bg-color: #182129;
+  --shadow: #151b22;
 }
 @mixin shadow {
   box-shadow: 0px 2px 10px var(--shadow);
+}
+a {
+  text-decoration: none;
+  color: var(--font-color);
 }
 body {
   background: var(--bg-color);
@@ -23,7 +27,7 @@ body {
   margin-top: 100px;
 }
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   padding: 0 30px;
   margin: 0 auto;
 }
@@ -46,6 +50,10 @@ button {
   & span {
     margin-right: 10px;
   }
+}
+
+input {
+  color: var(--font-color);
 }
 
 .input {
@@ -75,28 +83,40 @@ button {
   background-color: var(--primary-color);
   @include shadow();
   color: var(--font-color);
+  padding: 0.6rem 1.7rem;
+  font-size: 18px;
+  border-radius: 6px;
 }
 
 .header {
-  color: var(--font-color);
   &--lg {
     font-size: 2rem;
     font-weight: 800;
+    color: var(--font-color);
   }
   &--md {
     font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--font-color);
+  }
+  &--sm {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--font-color);
   }
 }
 
 .card {
+  @include shadow();
   position: relative;
   display: flex;
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: var(--bg-color);
   background-clip: border-box;
-
+  max-width: 100%;
+  color: var(--font-color);
   border-radius: 8px;
   &__image {
     flex-shrink: 0;
@@ -112,11 +132,20 @@ button {
     min-height: 1px;
     padding: 1.5rem;
   }
+
+  &__body__text {
+    display: flex;
+    margin: 5px 0;
+  }
+  &__body__title {
+    margin-bottom: 20px;
+  }
 }
 
 .grid {
   margin-top: 60px;
   display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  column-gap: 3rem;
+  row-gap: 5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }

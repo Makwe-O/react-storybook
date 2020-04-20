@@ -11,7 +11,7 @@ const Routes = () => {
       <Nav />
       <Switch>
         <Route path='/' component={Homepage} exact />
-        <Route path='/country/:countryname' component={SinglePage} exact />
+        <Route path='/:countryCode' component={SinglePage} exact />
       </Switch>
     </Router>
   );

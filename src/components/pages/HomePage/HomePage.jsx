@@ -1,50 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Input from '../../atoms/Input/Input';
 import Card from '../../molecules/Card/Card';
+import makeRequest from '../../../utils/axios';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
+  const [countries, setCountries] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+      const data = await makeRequest('all');
+      setCountries(data);
+    };
+    try {
+      fetchData();
+    } catch (error) {
+      console.log('An error occured', error);
+    }
+  }, []);
   return (
     <div>
       <div className='main-content'>
         <div className='container'>
           <Input placeholder='Search for a country...' />
           <div className='grid'>
-            <Card
-              name='Nigeria'
-              image={
-                'https://res.cloudinary.com/dnavbc7ny/image/upload/v1571018074/star%20wars/starship-3.jpg'
-              }
-            />
-            <Card
-              name='Nigeria'
-              image={
-                'https://res.cloudinary.com/dnavbc7ny/image/upload/v1571018074/star%20wars/starship-3.jpg'
-              }
-            />
-            <Card
-              name='Nigeria'
-              image={
-                'https://res.cloudinary.com/dnavbc7ny/image/upload/v1571018074/star%20wars/starship-3.jpg'
-              }
-            />
-            <Card
-              name='Nigeria'
-              image={
-                'https://res.cloudinary.com/dnavbc7ny/image/upload/v1571018074/star%20wars/starship-3.jpg'
-              }
-            />
-            <Card
-              name='Nigeria'
-              image={
-                'https://res.cloudinary.com/dnavbc7ny/image/upload/v1571018074/star%20wars/starship-3.jpg'
-              }
-            />
-            <Card
-              name='Nigeria'
-              image={
-                'https://res.cloudinary.com/dnavbc7ny/image/upload/v1571018074/star%20wars/starship-3.jpg'
-              }
-            />
+            {countries
+              ? countries.map((country) => (
+                  <Link to={`/${country.alpha2Code}`}>
+                    <Card
+                      key={country.alpha2Code}
+                      name={country.name}
+                      image={country.flag}
+                      capital={country.capital}
+                      population={country.population}
+                      region={country.region}
+                    />
+                  </Link>
+                ))
+              : null}
           </div>
         </div>
       </div>
