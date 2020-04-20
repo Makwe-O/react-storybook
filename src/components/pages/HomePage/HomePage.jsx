@@ -27,9 +27,8 @@ const HomePage = () => {
           <div className='grid'>
             {countries
               ? countries.map((country) => (
-                  <Link to={`/${country.alpha2Code}`}>
+                  <Link to={`/${country.alpha2Code}`} key={country.alpha2Code}>
                     <Card
-                      key={country.alpha2Code}
                       name={country.name}
                       image={country.flag}
                       capital={country.capital}
