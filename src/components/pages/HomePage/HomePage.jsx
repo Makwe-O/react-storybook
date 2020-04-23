@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Input from '../../atoms/Input/Input';
+import Select from '../../atoms/Select/Select';
 import Card from '../../molecules/Card/Card';
 import makeRequest from '../../../utils/axios';
 import { Link } from 'react-router-dom';
@@ -23,7 +24,10 @@ const HomePage = () => {
     <div>
       <div className='main-content'>
         <div className='container'>
-          <Input placeholder='Search for a country...' />
+          <div className='main-content__filters'>
+            <Input placeholder='Search for a country...' />{' '}
+            <Select placeholder='Select Region' />
+          </div>
           <div className='grid'>
             {countries
               ? countries.map((country) => (
