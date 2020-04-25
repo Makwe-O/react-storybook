@@ -7,12 +7,18 @@ import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   const [countries, setCountries] = useState(null);
+  const [filteredCountries, setFilteredCountries] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [regions, setRegions] = useState([]);
+  const [search, setSearch] = useState('');
+  const [filter, setFilter] = useState('');
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       const data = await makeRequest('all');
       setCountries(data);
+      setFilteredCountries(data);
+      setIsLoading(false);
     };
     try {
       fetchData();
@@ -20,29 +26,69 @@ const HomePage = () => {
       console.log('An error occured', error);
     }
   }, []);
+
+  useEffect(() => {
+    const uniqueRegions = [
+      ...new Set(countries?.map((country) => country.region)),
+    ].filter((uniqueRegion) => uniqueRegion !== '');
+
+    setRegions(uniqueRegions);
+  }, [countries]);
+
+  useEffect(() => {
+    setFilteredCountries(
+      countries
+        ?.filter((country) =>
+          filter === '' ? country : country.region.toLowerCase() === filter,
+        )
+        .filter((country) => country.name.toLowerCase().includes(search)),
+    );
+  }, [countries, filter, search]);
+
+  const handleChange = (e) => {
+    setFilter(e.target.value.toLowerCase());
+  };
+  const handleSearch = async (e) => {
+    setSearch(e.target.value.toLowerCase());
+  };
   return (
     <div>
       <div className='main-content'>
         <div className='container'>
           <div className='main-content__filters'>
-            <Input placeholder='Search for a country...' />{' '}
-            <Select placeholder='Select Region' />
+            <Input
+              placeholder='Search for a country...'
+              handleSearch={handleSearch}
+            />
+            <Select
+              placeholder='Select Region'
+              options={regions}
+              handleChange={handleChange}
+            />
           </div>
-          <div className='grid'>
-            {countries
-              ? countries.map((country) => (
-                  <Link to={`/${country.alpha2Code}`} key={country.alpha2Code}>
-                    <Card
-                      name={country.name}
-                      image={country.flag}
-                      capital={country.capital}
-                      population={country.population}
-                      region={country.region}
-                    />
-                  </Link>
-                ))
-              : null}
-          </div>
+          {isLoading ? (
+            'Loading'
+          ) : filteredCountries?.length === 0 ? (
+            'none'
+          ) : (
+            <div className='grid'>
+              {filteredCountries
+                ? filteredCountries.map((country) => (
+                    <Link
+                      to={`/${country.alpha2Code}`}
+                      key={country.alpha2Code}>
+                      <Card
+                        name={country.name}
+                        image={country.flag}
+                        capital={country.capital}
+                        population={country.population}
+                        region={country.region}
+                      />
+                    </Link>
+                  ))
+                : null}
+            </div>
+          )}
         </div>
       </div>
     </div>

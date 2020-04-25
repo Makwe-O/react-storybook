@@ -1,7 +1,7 @@
 import React from 'react';
 import Search from '../../../assets/search.svg';
 
-const Input = ({ placeholder, value }) => {
+const Input = ({ placeholder, value, handleSearch }) => {
   return (
     <span className='input__container'>
       <span className='input__icon'>
@@ -12,6 +12,7 @@ const Input = ({ placeholder, value }) => {
         type='text'
         placeholder={placeholder}
         value={value}
+        onChange={handleSearch}
       />
     </span>
   );
