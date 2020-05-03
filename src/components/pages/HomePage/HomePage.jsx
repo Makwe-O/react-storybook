@@ -9,6 +9,7 @@ const HomePage = () => {
   const [countries, setCountries] = useState(null);
   const [filteredCountries, setFilteredCountries] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [activePage, setActivePage] = useState(1);
   const [regions, setRegions] = useState([]);
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState('');
@@ -51,6 +52,7 @@ const HomePage = () => {
   const handleSearch = async (e) => {
     setSearch(e.target.value.toLowerCase());
   };
+
   return (
     <div>
       <div className='main-content'>
@@ -67,27 +69,38 @@ const HomePage = () => {
             />
           </div>
           {isLoading ? (
-            'Loading'
+            <div className='internet-issue'>
+              {' '}
+              <lottie-player
+                src='https://assets4.lottiefiles.com/packages/lf20_RiLwoG.json'
+                background='rgba(0, 0, 0, 0)'
+                speed='1'
+                style={{ width: '300px', height: '300px' }}
+                loop
+                autoplay></lottie-player>
+            </div>
           ) : filteredCountries?.length === 0 ? (
             'none'
           ) : (
-            <div className='grid'>
-              {filteredCountries
-                ? filteredCountries.map((country) => (
-                    <Link
-                      to={`/${country.alpha2Code}`}
-                      key={country.alpha2Code}>
-                      <Card
-                        name={country.name}
-                        image={country.flag}
-                        capital={country.capital}
-                        population={country.population}
-                        region={country.region}
-                      />
-                    </Link>
-                  ))
-                : null}
-            </div>
+            <>
+              <div className='grid'>
+                {filteredCountries
+                  ? filteredCountries.map((country) => (
+                      <Link
+                        to={`/${country.alpha2Code}`}
+                        key={country.alpha2Code}>
+                        <Card
+                          name={country.name}
+                          image={country.flag}
+                          capital={country.capital}
+                          population={country.population}
+                          region={country.region}
+                        />
+                      </Link>
+                    ))
+                  : null}
+              </div>
+            </>
           )}
         </div>
       </div>

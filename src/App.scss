@@ -78,7 +78,6 @@ select {
   display: flex;
   align-items: center;
   position: relative;
-  font-size: 1rem;
   padding-left: 1rem;
   padding-right: 5rem;
   height: 3.5rem;
@@ -86,6 +85,7 @@ select {
   padding-bottom: 1px;
   transition: all 0.2s ease 0s;
   outline: none;
+  cursor: pointer;
   border-radius: 0.25rem;
 }
 .arrow {
@@ -117,6 +117,8 @@ input {
     min-width: 0;
     padding: 0.9rem 0.9rem 0.6rem 0.9rem;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
 
     background: var(--primary-color);
     color: var(--font-color);
@@ -241,5 +243,14 @@ input {
       margin: 4px 5px;
       font-size: 14px;
     }
+  }
+}
+.internet-issue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  h4 {
+    color: var(--font-color);
   }
 }
