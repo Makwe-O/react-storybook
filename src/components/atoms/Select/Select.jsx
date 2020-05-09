@@ -5,7 +5,7 @@ const Select = ({ placeholder, options, handleChange }) => {
   return (
     <div className='select'>
       <select onChange={(e) => handleChange(e)}>
-        <option value='all'>{placeholder}</option>
+        <option value=''>{placeholder}</option>
         {options?.map((option) => (
           <option key={option} value={option}>
             {option}

@@ -68,20 +68,27 @@ const HomePage = () => {
             />
           </div>
           {isLoading ? (
-            <div className='internet-issue'>
-              <>
-                Loading
-                <lottie-player
-                  src='https://assets4.lottiefiles.com/packages/lf20_RiLwoG.json'
-                  background='rgba(0, 0, 0, 0)'
-                  speed='1'
-                  style={{ width: '300px', height: '300px' }}
-                  loop
-                  autoplay></lottie-player>
-              </>
+            <div className='noneData'>
+              <lottie-player
+                src='https://assets4.lottiefiles.com/packages/lf20_RiLwoG.json'
+                background='rgba(0, 0, 0, 0)'
+                speed='1'
+                style={{ width: '300px', height: '300px' }}
+                loop
+                autoplay></lottie-player>
+              <h4>Loading</h4>
             </div>
           ) : filteredCountries?.length === 0 ? (
-            'none'
+            <div className='noneData'>
+              <lottie-player
+                src='https://assets4.lottiefiles.com/packages/lf20_RiLwoG.json'
+                background='rgba(0, 0, 0, 0)'
+                speed='1'
+                style={{ width: '300px', height: '300px' }}
+                loop
+                autoplay></lottie-player>
+              <h4>No Data Found. Try Searching for something else</h4>
+            </div>
           ) : (
             <>
               <div className='grid'>
