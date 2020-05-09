@@ -13,7 +13,7 @@ const Routes = () => {
     <Router>
       <Nav />
       {isDisconnected ? (
-        <div className='internet-issue'>
+        <div className='noneData'>
           <h4>
             Sorry its not you its us. But please ensure you have a valid
             connection
