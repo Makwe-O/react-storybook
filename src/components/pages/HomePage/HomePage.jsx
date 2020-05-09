@@ -9,7 +9,6 @@ const HomePage = () => {
   const [countries, setCountries] = useState(null);
   const [filteredCountries, setFilteredCountries] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [activePage, setActivePage] = useState(1);
   const [regions, setRegions] = useState([]);
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState('');
@@ -70,14 +69,16 @@ const HomePage = () => {
           </div>
           {isLoading ? (
             <div className='internet-issue'>
-              {' '}
-              <lottie-player
-                src='https://assets4.lottiefiles.com/packages/lf20_RiLwoG.json'
-                background='rgba(0, 0, 0, 0)'
-                speed='1'
-                style={{ width: '300px', height: '300px' }}
-                loop
-                autoplay></lottie-player>
+              <>
+                Loading
+                <lottie-player
+                  src='https://assets4.lottiefiles.com/packages/lf20_RiLwoG.json'
+                  background='rgba(0, 0, 0, 0)'
+                  speed='1'
+                  style={{ width: '300px', height: '300px' }}
+                  loop
+                  autoplay></lottie-player>
+              </>
             </div>
           ) : filteredCountries?.length === 0 ? (
             'none'
