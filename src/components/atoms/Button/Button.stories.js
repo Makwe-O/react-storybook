@@ -2,6 +2,7 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import '../../../App.scss';
 import Button from './Button';
+import ButtonMarkDown from './Button.md';
 import BackIcon from '../../../assets/back.svg';
 
 export default {
@@ -37,3 +38,19 @@ export const ButtonWithIcon = () => (
     {ButtonData.children}
   </Button>
 );
+
+Text.story = {
+  parameters: {
+    notes: { ButtonMarkDown },
+  },
+};
+MainButton.story = {
+  parameters: {
+    notes: { ButtonMarkDown },
+  },
+};
+ButtonWithIcon.story = {
+  parameters: {
+    notes: { ButtonMarkDown },
+  },
+};
