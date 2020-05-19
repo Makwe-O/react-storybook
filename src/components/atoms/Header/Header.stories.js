@@ -1,17 +1,18 @@
-import React from "react";
-import "../../../App.scss";
-import Header from "./Header";
+import React from 'react';
+import '../../../App.scss';
+import Header from './Header';
+import HeaderMarkDown from './Header.md';
 
 export default {
-  title: "Header",
+  title: 'Header',
   component: Header,
-  excludeStories: /.*Data$/
+  excludeStories: /.*Data$/,
 };
 
 export const HeaderData = {
-  hearderSizeLg: "lg",
-  hearderSizeMd: "md",
-  children: "Hello World"
+  hearderSizeLg: 'lg',
+  hearderSizeMd: 'md',
+  children: 'Hello World',
 };
 
 export const Defaults = () => (
@@ -20,3 +21,9 @@ export const Defaults = () => (
     <Header headerSize={HeaderData.hearderSizeMd}>{HeaderData.children}</Header>
   </div>
 );
+
+Defaults.story = {
+  parameters: {
+    notes: { HeaderMarkDown },
+  },
+};
