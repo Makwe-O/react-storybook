@@ -12,7 +12,7 @@ import Header from 'components/Atoms/Header/Header';
 <Header {props}>{children}</Header>
 ```
 
-# Button Props
+# Header Props
 
 | Name       | Required | Type   | Description                                     |
 | ---------- | -------- | ------ | ----------------------------------------------- |

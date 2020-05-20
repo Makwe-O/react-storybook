@@ -1,17 +1,18 @@
-import React from "react";
-import "../../../App.scss";
-import Input from "./Input";
+import React from 'react';
+import '../../../App.scss';
+import Input from './Input';
+import InputMarkDown from './Input.md';
 
 export default {
-  title: "Input",
+  title: 'Input',
   component: Input,
-  excludeStories: /.*Data$/
+  excludeStories: /.*Data$/,
 };
 
 export const InputData = {
-  placeholder: "Search For Country..",
-  value: "Nigeria",
-  type: "text"
+  placeholder: 'Search For Country..',
+  value: 'Nigeria',
+  type: 'text',
 };
 
 export const InputDefault = () => (
@@ -24,3 +25,15 @@ export const InputWithText = () => (
     value={InputData.value}
   />
 );
+
+InputDefault.story = {
+  parameters: {
+    notes: { InputMarkDown },
+  },
+};
+
+InputWithText.story = {
+  parameters: {
+    notes: { InputMarkDown },
+  },
+};
