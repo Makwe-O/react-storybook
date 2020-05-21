@@ -2,6 +2,7 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import '../../../App.scss';
 import Select from './Select';
+import SelectMarkDown from './Select.md';
 
 export default {
   title: 'Select',
@@ -25,3 +26,9 @@ export const SelectDropdown = () => (
     placeholder={SelectData.placeholder}
   />
 );
+
+SelectDropdown.story = {
+  parameters: {
+    notes: { SelectMarkDown },
+  },
+};
