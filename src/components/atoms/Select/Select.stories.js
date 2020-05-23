@@ -1,7 +1,7 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import '../../../App.scss';
-import Select from './Select';
+import Select from './Select.tsx';
 import SelectMarkDown from './Select.md';
 
 export default {
