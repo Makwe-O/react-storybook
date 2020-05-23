@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Header: React.FC<{ headerSize: String }> = ({ children, headerSize }) => {
+interface HeaderProps {
+  headerSize: String;
+  children: Component;
+}
+
+const Header: React.FC<HeaderProps> = ({ children, headerSize }) => {
   return <h1 className={`header--${headerSize}`}>{children}</h1>;
 };
 

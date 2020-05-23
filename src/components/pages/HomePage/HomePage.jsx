@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Input from '../../atoms/Input/Input';
-import Select from '../../atoms/Select/Select';
+import Select from '../../atoms/Select/Select.tsx';
 import Card from '../../molecules/Card/Card';
 import makeRequest from '../../../utils/axios';
 import { Link } from 'react-router-dom';

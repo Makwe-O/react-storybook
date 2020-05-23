@@ -1,7 +1,13 @@
 import React from 'react';
 import Search from '../../../assets/search.svg';
 
-const Input = ({ placeholder, value, handleSearch }) => {
+interface InputProps {
+  placeholder: string;
+  value: string;
+  handleSearch(): void;
+}
+
+const Input: React.FC<InputProps> = ({ placeholder, value, handleSearch }) => {
   return (
     <span className='input__container'>
       <span className='input__icon'>

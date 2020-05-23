@@ -1,17 +1,23 @@
 import React from 'react';
-interface Button {
-  btnStyle?: String;
-  onClick?: Function;
+interface ButtonProps {
+  btnStyle: string;
+  onClick(): void;
+  icon: string;
 }
 
-const Button: React.FC = ({ btnStyle, children, icon, onClick }) => {
+const Button: React.FC<ButtonProps> = ({
+  btnStyle,
+  children,
+  icon,
+  onClick,
+}) => {
   return (
-    <button onClick={onClick} className={btnStyle}>
+    <button className={btnStyle}>
       {icon ? (
         <span>
           <img src={icon} alt='icon' width='20px' />
         </span>
-      ) : null}{' '}
+      ) : null}
       {children}
     </button>
   );
