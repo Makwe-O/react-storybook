@@ -1,6 +1,20 @@
 import React from 'react';
 import Header from '../../atoms/Header/Header';
-const Card = ({ image, name, population, region, capital }) => {
+
+interface CardProps {
+  image: string;
+  name: string;
+  population: number;
+  region: string;
+  capital: string;
+}
+const Card: React.FC<CardProps> = ({
+  image,
+  name,
+  population,
+  region,
+  capital,
+}) => {
   return (
     <div className='card'>
       <img src={image} alt={`${name} flag`} className='card__image' />
