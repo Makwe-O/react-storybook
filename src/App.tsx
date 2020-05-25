@@ -3,8 +3,8 @@ import Routes from './routes';
 import './App.scss';
 import './reset.css';
 
-function App() {
+const App: React.FC = () => {
   return <Routes />;
-}
+};
 
 export default App;
