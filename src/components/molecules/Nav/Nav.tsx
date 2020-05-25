@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Header from '../../atoms/Header/Header';
 import Moon from '../../../assets/moon.svg';
 import Sun from '../../../assets/sun.svg';
-
 import { Link } from 'react-router-dom';
-const Nav = () => {
+const Nav: React.FC = () => {
   const isLightModeExist = localStorage.getItem('isLightMode');
-  const [moon, setMoon] = useState(null);
-  const switchMode = () => {
+  const [moon, setMoon] = useState(false);
+  const switchMode = (): void => {
     const checkMode = localStorage.getItem('isLightMode');
     if (checkMode === 'light') {
       document.documentElement.setAttribute('data-theme', 'dark');

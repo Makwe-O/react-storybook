@@ -2,7 +2,7 @@ import React from 'react';
 
 interface HeaderProps {
   headerSize: String;
-  children?: string;
+  children?: any;
 }
 
 const Header: React.FC<HeaderProps> = ({ children, headerSize }) => {
