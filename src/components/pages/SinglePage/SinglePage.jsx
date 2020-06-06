@@ -29,12 +29,14 @@ const SinglePage = ({ match, history }) => {
   return (
     <div className='main-content'>
       <div className='container '>
-        <Button
-          icon={back}
-          btnStyle={`btn--primary`}
-          onClick={() => history.goBack()}>
-          Back
-        </Button>
+        <div onClick={() => history.goBack()}>
+          <Button
+            icon={back}
+            btnStyle={`btn--primary`}
+            onClick={() => history.goBack()}>
+            Back
+          </Button>
+        </div>
         <div className='country'>
           <div>
             {isLoading ? (
