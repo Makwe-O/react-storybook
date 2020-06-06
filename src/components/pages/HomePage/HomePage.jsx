@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Input from '../../atoms/Input/Input';
-import Select from '../../atoms/Select/Select.tsx';
+import Select from '../../atoms/Select/Select';
 import Card from '../../molecules/Card/Card';
 import makeRequest from '../../../utils/axios';
 import { Link } from 'react-router-dom';
@@ -56,7 +56,7 @@ const HomePage = () => {
     <div>
       <div className='main-content'>
         <div className='container'>
-          <div className='main-content__filters'>
+          <div className='main-content__filters '>
             <Input
               placeholder='Search for a country...'
               handleSearch={handleSearch}

@@ -31,7 +31,11 @@ body {
   margin-bottom: 100px;
   &__filters {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    @media only screen and (max-width: 480px) {
+      flex-direction: column;
+    }
   }
 }
 .container {
@@ -61,7 +65,11 @@ button {
 }
 
 .select {
+  @media only screen and (max-width: 480px) {
+    margin-top: 20px;
+  }
   position: relative;
+  margin-top: 0px;
   background: var(--primary-color);
   & img {
     width: 1rem;
@@ -91,6 +99,10 @@ select {
   border: none;
   cursor: pointer;
   border-radius: 0.25rem;
+  width: 100%;
+  @media only screen and (min-width: 480px) {
+    width: fit-content;
+  }
 }
 .arrow {
   position: absolute;
